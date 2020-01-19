@@ -1,0 +1,14 @@
+
+.search-by{
+    margin: 5px 20px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.search-btn{
+    position: absolute;
+    bottom: 23px;
+    padding: 10px 40px;
+    left: 31%;
+    border-radius: 10px;
+}

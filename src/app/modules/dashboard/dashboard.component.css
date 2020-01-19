@@ -1,0 +1,76 @@
+.day{
+    padding: 20px 0;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 10px;
+    display: flex;
+    min-width: 70px;
+    justify-content: center
+}
+.current-day{
+    background-image: linear-gradient(to bottom,#00AE94, #5DD484);
+    color:#fff
+}
+.days-cont{
+    overflow: auto;
+}
+.days-cont::-webkit-scrollbar { width: 0 !important }
+.number{
+    position: absolute;
+    top: 45%;
+    left: 40%;
+}
+.chart-cont{
+    background-color: #364148;
+    border-radius: 20px;
+    padding: 0;
+}
+.chart-cont span{
+    font-size: 11px;
+    
+}
+.chart-inner{
+    width: 100%
+}
+.header{
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #fff;
+    color:#364148;
+    margin-top: -3px;
+}
+.seperator,.brdr-bottom{
+    width: 80%;
+    height: 0.8px;
+    background-color: #595959;
+    margin: auto;
+}
+.total-cont{
+    background-color: #fff;
+   border-radius: 15px
+}
+.total-img-cont{
+    background-color: #364148;
+    text-align: center;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.brdr-bottom{
+    height: 4px;
+    width: 85%;
+
+}
+.detail-cont{
+    background-color: #fff;
+    border-radius: 10px
+}
+.color{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px
+}

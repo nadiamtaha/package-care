@@ -1,0 +1,45 @@
+.scewed-login{
+    height: 300px;
+    background-image: linear-gradient(to bottom,#00AE94, #5DD484);
+    transform:skewY(-30deg);
+    position: absolute;
+    width: 100%;
+    bottom: 23px;
+    z-index: -1;
+
+}
+.triangle{
+    position: absolute;
+    width: 100%;
+    z-index: -4;
+    top: 75%;
+    right: 0;
+    background-color: #5DD484;
+    height: 340px
+
+
+}
+.img-footer{
+    margin-top: -150px;
+    margin-left: -14px;
+}
+
+.img-footer img{
+    width: 250px;
+    height: 270px;
+
+}
+
+
+@media only screen and (min-width:375px){
+    .triangle{
+        position: absolute;
+        width: 100%;
+        z-index: -4;
+        top: 75%;
+        right: 0;
+        background-color: #5DD484;
+    
+    
+    }
+}

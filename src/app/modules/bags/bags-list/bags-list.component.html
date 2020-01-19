@@ -1,0 +1,67 @@
+<p class="title">Bags</p>
+
+<div class="container">
+    <ngx-spinner></ngx-spinner>
+
+    <div class="row search-cont py-2">
+        <form class="col-12 form-inline my-2 my-lg-0 search-input">
+                <input (keyup)="getFilteredData(searchTxt)" name="search" [(ngModel)]="searchTxt" class="form-control mr-sm-2 p-4 " type="search" placeholder="Enter keyword" aria-label="Search">
+                <i class="fa fa-search search-icon"></i>
+
+              </form>
+     </div>
+     <div class="row bags-slogan">
+             
+     </div>
+     <div class="row mt-4 justify-content-center">
+            <div *ngFor="let bag of bagsList" class="col-11 d-flex bg-white py-3 px-0 each-detail mb-3">
+             <div class="col-5 text-center" >
+                 <div>
+                     <div class="bag-cont">
+                            <img class="bag-list" src="../../../../assets/images/bag-lis.png">
+
+                     </div>
+                 <i class="fa view-icon  fa-eye" (click)="viewBag(bag.Id)"></i>
+                 <!-- <i class="fa edit-icon  fa-edit"></i> -->
+                </div>
+            </div>
+            <div class="col-7 d-flex text-center" >
+                <div>
+                <table class="table text-left">
+       
+                   <tr class="p-1">
+                       <td>BarCode</td>
+                       <td>{{bag.BarCode}}</td>
+                   </tr>
+                 
+                 
+                           
+                                <tr  class="p-1">
+                                        <td>Group</td>
+                                        <td>{{bag.GroupName}}</td>
+                                    </tr>
+                </table>
+                <span > <i class=" far fa-clock"></i>
+                    Latest Upadate
+                       1 Hour ago</span>
+                    </div>
+           </div>
+             
+               
+        
+            </div>
+            <nav style="max-width: 50%;overflow: auto;" *ngIf="totalCount>searchCriteria.pageSize" class="pagination" aria-label="Page navigation example">
+                <ul class="pagination">
+                  <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+                  <li [class.active]="index == currentIndex" (click)="getData(index)"
+                  *ngFor="let pageNumber of numbers; let index = index" class="page-item">
+                  <a class="page-link page" >{{pageNumber}}</a>
+                </li>
+                  <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+                </ul>
+              </nav>
+                 
+          
+     </div>
+</div>
+    

@@ -1,0 +1,95 @@
+<div *ngIf="showConfirmMsg" class="confirm-msg">
+    <img src="../../../../assets/images/confirm.png">
+    <p *ngIf="!userId"   class="text-center">Succesfully user Has been added</p>
+    <p *ngIf="userId"  class="text-center">Succesfully user Has been updated</p>    <div class="w-100 d-flex justify-content-around my-3">
+            <div class="btn green-btn  save-btn">
+                <button (click)="removeOverlay()"  class="submit w-100" >Add More</button>
+            </div>
+            <div class="btn red-btn cancel-btn">
+                    <button (click)="removeOverlay()"  class="submit w-100" routerLink="/layout/users">Cancel</button>
+                </div>
+            </div>
+</div>
+<p *ngIf="!userId" class="title">Add New User</p>
+<p *ngIf="userId" class="title">Update User</p><div class="container">
+
+  
+    <form class="add-form p-3 mt-3 w-100" [formGroup]="addForm" (ngSubmit)="submitUser()">
+            <fieldset class="sub-fieldset select-fieldset my-3">
+                    <legend>Name</legend>
+                    <div class="form-group">
+                        <input formControlName="DisplayName" class="form-control" type="text"
+                            >
+                    </div>
+                </fieldset>
+                <span *ngIf="addForm.controls.DisplayName.touched && addForm.controls.DisplayName.errors != null" class="text-danger">name is required</span>
+
+                <fieldset class="sub-fieldset select-fieldset my-3">
+                        <legend>Image</legend>
+                        <div class="form-group">
+                            <input formControlName="file" class="form-control" type="file" accept="image/*"
+                                >
+                        </div>
+                    </fieldset>
+                    <!-- <span *ngIf="addForm.controls.file.touched && addForm.controls.file.errors != null" class="text-danger">name is required</span> -->
+
+                    <fieldset class="sub-fieldset select-fieldset my-3">
+                            <legend>Email</legend>
+                            <div class="form-group">
+                                <input formControlName="Email" class="form-control" type="text"
+                                   >
+                            </div>
+                        </fieldset>
+                        <span *ngIf="addForm.controls.Email.touched && addForm.controls.Email.errors != null" class="text-danger">email is required</span>
+
+                        <fieldset class="sub-fieldset select-fieldset my-3">
+                                <legend>Mobile</legend>
+                                <div class="form-group">
+                                    <input formControlName="Mobile" class="form-control" type="text"
+                                       >
+                                </div>
+                            </fieldset>
+                            <span *ngIf="addForm.controls.Mobile.touched && addForm.controls.Mobile.errors != null" class="text-danger">mobile is required</span>
+
+                            <fieldset *ngIf="!userId" class="sub-fieldset select-fieldset my-3">
+                                <legend>Password</legend>
+                                <div class="form-group">
+                                    <input formControlName="Password" class="form-control" type="password"
+                                       >
+                                </div>
+                            </fieldset>
+                            <span *ngIf="addForm.controls.Password.touched && addForm.controls.Password.errors != null" class="text-danger">password is required</span>
+
+                            <fieldset *ngIf="!userId" class="sub-fieldset select-fieldset my-3">
+                                <legend>Confirm Password</legend>
+                                <div class="form-group">
+                                    <input formControlName="ConfirmPassword" class="form-control" type="text"
+                                       >
+                                </div>
+                            </fieldset>
+                            <span *ngIf="addForm.controls.ConfirmPassword.touched && addForm.controls.ConfirmPassword.errors != null" class="text-danger">repass is required</span>
+
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <legend>User Role</legend>
+            <div class="select">
+                <select (change)="onRoleChange($event.target.value)"  formControlName="UserType" name="slct" id="slct">
+                    <option style="display: none"></option>
+                    <option  *ngFor="let role of rolesList|search:searchTxt" value="{{role.TypeName}}">{{role.TypeName}}</option>
+                   
+                </select>
+            </div>
+        </fieldset>
+        <span *ngIf="addForm.controls.UserType.touched && addForm.controls.UserType.errors != null" class="text-danger">role is required</span>
+
+       <div class="w-100 d-flex justify-content-around my-4" >
+        <div class="btn green-btn  save-btn" [ngClass]="{'disabled':addForm.invalid}">
+            <button   [disabled]='addForm.invalid' class="submit w-100" type="submit">Save</button>
+        </div>
+        <div class="btn red-btn cancel-btn">
+                <button (click)="removeOverlay()"  class="submit w-100" routerLink="/layout/users" >Cancel</button>
+            </div>
+        </div>
+    </form>
+    
+</div>
+

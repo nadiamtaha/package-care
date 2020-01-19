@@ -1,0 +1,62 @@
+<div *ngIf="showConfirmMsg" class="confirm-msg">
+    <img src="../../../../assets/images/confirm.png">
+    <p *ngIf="!vendorId"   class="text-center">Succesfully Vendor Has been added</p>
+    <p *ngIf="vendorId"  class="text-center">Succesfully Vendor Has been updated</p>
+
+    <div class="w-100 d-flex justify-content-around my-3">
+            <div *ngIf="!vendorId" class="btn green-btn  save-btn">
+                <button (click)="removeOverlay()"  class="submit w-100" >Add More</button>
+            </div>
+            <div class="btn red-btn cancel-btn">
+                    <button (click)="removeOverlay()"  class="submit w-100" routerLink="/layout/vendors">Cancel</button>
+                </div>
+            </div>
+</div>
+<p *ngIf="!vendorId" class="title">Add New Vendor</p>
+<p *ngIf="vendorId" class="title">Update Vendor</p>
+
+<div class="container">
+
+  
+    <form class="add-form p-3 mt-3 w-100" [formGroup]="addForm" (ngSubmit)="sumbitVendor()">
+            <fieldset class="sub-fieldset select-fieldset my-1">
+                    <legend>Name</legend>
+                    <div class="form-group">
+                        <input  formControlName="name" class="form-control" type="text">
+                    </div>
+
+                </fieldset>
+                <span *ngIf="addForm.controls.name.touched && addForm.controls.name.errors != null" class="text-danger">name is required</span>
+
+                <fieldset class="sub-fieldset select-fieldset my-1">
+                        <legend>Email</legend>
+                        <div class="form-group">
+                            <input formControlName="email" class="form-control" type="text" >
+
+                        </div>
+
+                    </fieldset>
+                    <span *ngIf="addForm.controls.email.touched && addForm.controls.email.errors != null" class="text-danger">email should be valid</span>
+
+                    <fieldset class="sub-fieldset select-fieldset my-1">
+                            <legend>Address</legend>
+                            <div class="form-group">
+                                <input formControlName="address" class="form-control" type="text">
+                            </div>
+
+                        </fieldset>
+                        <span *ngIf="addForm.controls.address.touched && addForm.controls.address.errors != null" class="text-danger">address is required</span>
+
+       
+       <div class="w-100 d-flex justify-content-around mt-3">
+        <div [ngClass]="{'disabled':addForm.invalid}" class="btn green-btn  save-btn">
+            <button   [disabled]='addForm.invalid'    class="submit w-100" type="submit">Save</button>
+        </div>
+        <div class="btn red-btn cancel-btn">
+                <button (click)="removeOverlay()"  class="submit w-100" routerLink="/layout/vendors" >Cancel</button>
+            </div>
+        </div>
+    </form>
+    
+</div>
+

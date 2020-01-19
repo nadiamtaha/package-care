@@ -1,0 +1,17 @@
+<div class="content">
+        <div class="sidebar-container">
+        <app-sidebar></app-sidebar>
+      </div>
+    
+<div class="main w-100">
+  <div (click)="hideOverlay()" class="content-overlay"></div>
+
+  <div class="d-flex align-items-center toggle-cont">
+    <i (click)="toggleNavbar()" class="fas fa-bars toggle-nav-icon"></i>
+    
+  </div>
+
+    <router-outlet></router-outlet>
+ 
+</div>
+</div>

@@ -1,0 +1,105 @@
+<div *ngIf="showConfirmMsg" class="confirm-msg">
+    <img src="../../../../assets/images/confirm.png">
+    <p class="text-center">Succesfully Flight Has been added</p>
+    <div class="w-100 d-flex justify-content-around my-3">
+        <div class="btn green-btn  save-btn">
+            <button (click)="removeOverlay()" class=" submit w-100">Add More</button>
+        </div>
+        <div class="btn red-btn cancel-btn">
+            <button (click)="removeOverlay()" class="submit w-100" routerLink="/layout/flights">Cancel</button>
+        </div>
+    </div>
+</div>
+<p class="title">Add New Flight</p>
+<div class="container">
+
+
+    <form class="add-form p-3 mt-3 w-100" [formGroup]="addForm" (ngSubmit)="addFlight()">
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <!-- <ng-select2 [data]="exampleData"
+                [width]="300">
+    </ng-select2> -->
+            <legend>Create Flight</legend>
+            <div class="form-group">
+                <input formControlName="Number" class="form-control" type="text">
+            </div>
+        </fieldset>
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <legend>Airline</legend>
+            <div class="form-group">
+                <div class="select">
+                        <ng-select 
+                        [items]="airlinesList"
+                        bindLabel="Name"
+                        bindValue="Id"
+                        labelForId="state"
+                        [multiple]="false"
+                        clearAllText="Clear"
+                        formControlName="AirLineId">
+             </ng-select>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <legend>From AirPort</legend>
+
+            <div class="form-group">
+                <div class="select">
+                        <ng-select 
+                        [items]="airportsList"
+                        bindLabel="Name"
+                        bindValue="Id"
+                        labelForId="state"
+                        [multiple]="false"
+                        clearAllText="Clear"
+                        formControlName="FromAirPortId">
+             </ng-select>
+                </div>
+            </div>
+        </fieldset>
+       
+        <fieldset class="sub-fieldset select-fieldset my-3">
+                <legend>To AirPort</legend>
+            <div class="form-group">
+                <div class="select">
+                        <ng-select 
+                        [items]="airportsList"
+                        bindLabel="Name"
+                        bindValue="Id"
+                        labelForId="state"
+                        [multiple]="false"
+                        clearAllText="Clear"
+                        formControlName="ToAirPortId">
+             </ng-select>
+                    <!-- <select formControlName="toAirplane" name="slct" id="slct">
+                        <option style="display: none"></option>
+                        <option value="1">Madinah</option>
+                        <option value="2">Gada</option>
+                        <option value="3">Makka</option>
+                    </select> -->
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <legend>Departure</legend>
+            <div class="form-group">
+                <input formControlName="DepartureTime" class="form-control" type="date">
+            </div>
+        </fieldset>
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <legend>Arrival</legend>
+            <div class="select">
+                <input formControlName="ArrivalTime" class="form-control" type="date">
+            </div>
+        </fieldset>
+        <div class="w-100 d-flex justify-content-around">
+            <div class="btn green-btn  save-btn">
+                <button class="submit w-100" type="submit">Save</button>
+            </div>
+            <div class="btn red-btn cancel-btn">
+                <button (click)="removeOverlay()" class="submit w-100" routerLink="/layout/flights">Cancel</button>
+            </div>
+        </div>
+    </form>
+
+</div>

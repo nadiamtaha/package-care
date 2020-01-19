@@ -1,0 +1,82 @@
+<div *ngIf="showConfirmMsg" class="confirm-msg">
+    <img src="../../../../assets/images/confirm.png">
+    <p *ngIf="!hotelId"   class="text-center">Succesfully Hotel Has been added</p>
+    <p *ngIf="hotelId"  class="text-center">Succesfully Hotel Has been updated</p>
+    <div class="w-100 d-flex justify-content-around my-3">
+            <div *ngIf="!hotelId" class="btn green-btn  save-btn">
+                <button (click)="removeOverlay()"  class="submit w-100" >Add More</button>
+            </div>
+            <div class="btn red-btn cancel-btn">
+                    <button (click)="removeOverlay()"  class="submit w-100" routerLink="/layout/hotels">Cancel</button>
+                </div>
+            </div>
+</div>
+<p *ngIf="!hotelId" class="title">Add New Hotel</p>
+<p *ngIf="hotelId" class="title">Update Hotel</p>
+<div class="container">
+
+  
+    <form class="add-form p-3 mt-3 w-100" [formGroup]="addForm" (ngSubmit)="submitHotel()">
+            <fieldset class="sub-fieldset select-fieldset my-3">
+                    <legend>Name</legend>
+                    <div class="form-group">
+                        <input formControlName="name" class="form-control" type="text"
+                            >
+                    </div>
+                </fieldset>
+                <span *ngIf="addForm.controls.name.touched && addForm.controls.name.errors != null" class="text-danger">name is required</span>
+
+                <fieldset class="sub-fieldset select-fieldset my-3">
+                        <legend>Code</legend>
+                        <div class="form-group">
+                            <input formControlName="code" class="form-control" type="number"
+                                >
+                        </div>
+                    </fieldset>
+                    <span *ngIf="addForm.controls.code.touched && addForm.controls.code.errors != null" class="text-danger">code is required</span>
+
+                    <fieldset class="sub-fieldset select-fieldset my-3">
+                            <legend>Latitude</legend>
+                            <div class="form-group">
+                                <input formControlName="latitude" class="form-control" type="number"
+                                   >
+                            </div>
+                        </fieldset>
+                        <span *ngIf="addForm.controls.latitude.touched && addForm.controls.latitude.errors != null" class="text-danger">latitude is required</span>
+
+                        <fieldset class="sub-fieldset select-fieldset my-3">
+                                <legend>Longitude</legend>
+                                <div class="form-group">
+                                    <input formControlName="longitude" class="form-control" type="number"
+                                       >
+                                </div>
+                            </fieldset>
+                            <span *ngIf="addForm.controls.longitude.touched && addForm.controls.longitude.errors != null" class="text-danger">longitude is required</span>
+    
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <legend>Hotel City</legend>
+           
+            
+            <div class="select">
+                  
+                <select (change)="onCityChange($event.target.value)"  formControlName="cityId" name="slct" id="slct">
+                    <option style="display: none"></option>
+                    <option  *ngFor="let city of citiesList" value="{{city.Id}}">{{city.Name}}</option>
+                   
+                </select>
+            </div>
+        </fieldset>
+        <span *ngIf="addForm.controls.cityId.touched && addForm.controls.cityId.errors != null" class="text-danger">city is required</span>
+
+       <div class="w-100 d-flex justify-content-around">
+        <div [ngClass]="{'disabled':addForm.invalid}" class="btn green-btn  save-btn">
+            <button [disabled]='addForm.invalid'  class="submit w-100" type="submit">Save</button>
+        </div>
+        <div class="btn red-btn cancel-btn">
+                <button (click)="removeOverlay()"  class="submit w-100" routerLink="/layout/hotels" >Cancel</button>
+            </div>
+        </div>
+    </form>
+   
+</div>
+

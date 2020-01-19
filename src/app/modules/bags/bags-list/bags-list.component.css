@@ -1,0 +1,14 @@
+.bag-list{
+    width: 60px;
+    height: 100px;
+    margin-top: 10px
+}
+.bag-cont{
+    background-color: #04B094;
+    width: 100%;
+    height: 120px;
+    border-radius: 50%;
+}
+.bar-code{
+    width: 70px
+}

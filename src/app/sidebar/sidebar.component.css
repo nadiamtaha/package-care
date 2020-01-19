@@ -1,0 +1,23 @@
+.side-logo{
+    width: 150px
+}
+
+ul li{
+    padding: 10px;
+    padding-left: 30px;
+    display: flex;
+    align-items: center
+}
+ul li a{
+    color:#000
+}
+.active{
+    background-image: linear-gradient(to right,#FF8E73, #F7941D);
+
+}
+.active a{
+    color:#fff !important
+}
+.logout-btn{
+    border-radius: 8px
+}

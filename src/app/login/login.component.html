@@ -1,0 +1,75 @@
+
+<div class="login-container m-auto pt-5 text-center">
+    <ngx-spinner></ngx-spinner>
+
+     <img src="../../assets/images/logo.png">
+     <h2>Welcome to</h2>
+     <p>Baggage Care Admin</p>
+    
+     <div class="login-form px-3">
+         <!-- [formGroup]="loginForm" -->
+            <form class="m-auto" [formGroup]="loginForm" (ngSubmit)="login()" >
+                    <fieldset>
+                        <legend>Login</legend>
+                        <div class="border-btm"></div>
+                        <fieldset  class="sub-fieldset my-3">
+                                <legend>Username</legend>
+                                <div class="form-group has-feedback">
+                                        <input type="text" class="form-control" formControlName="username" placeholder="enter your name" />
+                                        <i class="far input-i fa-envelope"></i>
+                                    </div>
+                                    
+
+                        </fieldset>
+                        <fieldset  class="sub-fieldset my-3">
+                                <legend>Password</legend>
+                                <div class="form-group has-feedback">
+                                        <input type="password" class="form-control" formControlName="password" placeholder="enter your password" />
+                                        <i class=" input-i fas fa-lock"></i>
+                                    </div>
+                        </fieldset>
+                        <div class="btn d-block green-btn">
+                                <button class="submit w-100" type="submit">LOGIN</button>
+                         </div>
+                 </fieldset>
+                 
+                    <!-- <div class="auth-form m-auto">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">PHONE NUMBER</label>
+                          <div class="phone-number-container">
+                            <input class="col-sm-3" type="number" formControlName="phonePrefix">
+                            <input class="col-sm-8" type="number" formControlName="phoneNumber">
+                          </div>
+                          <div class="form-text text-muted" 
+                            *ngIf="loginForm.controls.phoneNumber.touched && loginForm.controls.phoneNumber.errors?.required">
+                              Please enter phone number!
+                          </div>
+            
+                        
+                        </div>
+                    
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">PASSWORD</label>
+                                <input type="password" class="form-control" formControlName="password">
+                                <div class="form-text text-muted" 
+                                  *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
+                                    Please enter your password!
+                                </div>
+                  
+                              
+                        </div>
+                    
+                        <div class="text-center">
+                          <button class="submit" type="submit">Sign In</button>
+                        </div>
+                    </div> -->
+                  </form>
+                  <div class="img-footer">
+                      <img src="../../assets/images/login-footer-2.png">
+                  </div>
+
+     </div>
+
+     <div class="scewed-login"></div>
+     <div class="triangle"></div>
+    </div>

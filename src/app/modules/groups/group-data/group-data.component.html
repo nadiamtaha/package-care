@@ -1,0 +1,283 @@
+<p *ngIf="first" class="title">Group Details</p>
+<p *ngIf="second" class="title">Flights Data</p>
+<p *ngIf="third" class="title">Deleviry Stages</p>
+
+<div class="container text-center">
+    <div class="row p-3 pb-0 stages-cont">
+        <div class="col-4">
+            <div *ngIf="!first" (click)="activeDiv('first')" class="bag-cont">
+
+                <img class="bag-list img-fluid rounded" src="../../../../assets/images/basic.png">
+
+            </div>
+            <div *ngIf="first" (click)="activeDiv('first')" class="bag-cont">
+
+                <img class="bag-list img-fluid rounded" src="../../../../assets/images/bs2.png">
+
+            </div>
+
+        </div>
+        <div class="col-4">
+            <div *ngIf="!second" (click)="activeDiv('second')" class="bag-cont">
+
+                <img class="bag-list img-fluid rounded" src="../../../../assets/images/flight.png">
+
+            </div>
+            <div *ngIf="second" (click)="activeDiv('second')" class="bag-cont">
+
+                <img class="bag-list img-fluid rounded" src="../../../../assets/images/fl2.png">
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div *ngIf="!third" (click)="activeDiv('third')" class="bag-cont">
+
+                <img class="bag-list img-fluid rounded" src="../../../../assets/images/deleivery.png">
+
+            </div>
+            <div *ngIf="third" (click)="activeDiv('third')" class="bag-cont">
+
+                <img class="bag-list img-fluid rounded" src="../../../../assets/images/del2.png">
+
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="first" class="first">
+        <div class="row d-flex text-left justify-content-center bg-white py-3 px-0 each-detail m-3">
+            <div class="row p-3">
+                <div class="col-12">
+                    <div class="">
+                        <img class="bag-list img-fluid rounded-circle" src="../../../../assets/images/gp.png">
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div *ngIf="gpBasicData" class="row w-100">
+
+                <div class="table-cont">
+                    <table class="table text-left">
+
+                        <tr class="p-1">
+                            <td>Name</td>
+                            <td>{{gpBasicData.Name}}</td>
+                        </tr>
+
+
+
+                        <tr class="p-1">
+                            <td>Status</td>
+                            <td>{{gpBasicData.StatusName}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>Flight Num</td>
+                            <td>{{gpBasicData.FlightNumber}}</td>
+
+                        </tr>
+                        <tr class="p-1">
+                            <td>Leader passport</td>
+                            <td>{{gpBasicData.LeaderPassportNumber}}</td>
+
+                        </tr>
+                        <tr class="p-1">
+                            <td>Hotel</td>
+                            <td>{{gpBasicData.HotelName}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>Creation Date</td>
+                            <td>{{gpBasicData.CreationDate}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div *ngIf="gpHotelData" class="row d-flex text-left justify-content-center bg-white py-3 px-0 each-detail m-3">
+
+            <div class="row p-3">
+                Hotel Data
+
+
+
+            </div>
+            <div class="row w-100">
+
+                <div class="table-cont">
+                    <table class="table text-left">
+
+                        <tr class="p-1">
+                            <td>Hotel Name</td>
+                            <td>{{gpHotelData.HotelName}}</td>
+                        </tr>
+
+
+
+                        <tr class="p-1">
+                            <td>Hotel City</td>
+                            <td>{{gpHotelData.HotelCity}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>Bags</td>
+                            <td>{{gpHotelData.BagsCount}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>Not Scanned Bags</td>
+                            <td>{{gpHotelData.NotScannedBagsCount}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div> <i class=" far fa-clock"></i>
+            Latest Upadate
+            1 Hour ago
+        </div>
+        <div class="btn green-btn  save-btn my-3">
+            <button class="submit w-100" routerLink="/layout/groups">Back</button>
+        </div>
+    </div>
+    <div *ngIf="second" class="second">
+
+        <div *ngIf="gpFlightData" class="row d-flex text-left justify-content-center bg-white py-3 px-0 each-detail m-3">
+
+            <div class="row p-3">
+                <div class="col-12">
+                    <div class="">
+                        <img class="bag-list img-fluid" src="../../../../assets/images/pl2.png">
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="row w-100">
+
+                <div class="table-cont">
+                    <table class="table text-left">
+
+                        <tr class="p-1">
+                            <td>Flight Number</td>
+                            <td>{{gpFlightData.FlightNumber}}</td>
+                        </tr>
+
+
+
+                        <tr class="p-1">
+                            <td>AirPlane</td>
+                            <td>{{gpFlightData.AirlineName}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>From</td>
+                            <td>{{gpFlightData.FromAirportName}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>to</td>
+                            <td>{{gpFlightData.ToAirportName}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>Deprature</td>
+                            <td>{{gpFlightData.DepartureTime}}</td>
+                        </tr>
+                        <tr class="p-1">
+                            <td>Arrival</td>
+                            <td>{{gpFlightData.ArrivalTime}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div> <i class=" far fa-clock"></i>
+            Latest Upadate
+            1 Hour ago
+        </div>
+        <div class="btn green-btn  save-btn my-3">
+            <button class="submit w-100" routerLink="/layout/groups">Back</button>
+        </div>
+    </div>
+    <div *ngIf="third" class="third">
+
+        <div class="row d-flex text-left justify-content-center bg-white py-3 px-0 each-detail m-3">
+
+
+            <div *ngIf="gpDeliveryData" class="row w-100">
+                <div class="col-3 d-flex justify-content-center">
+                    <div class="coloumn">
+                            <div class="lg-blue-ball"></div>
+                            <div class="lg-green-ball"></div>
+                            <div class="lg-pink-ball"></div>
+
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="d-flex justify-content-between w-75 m-auto shadow py-4 px-2 my-3 rounded">
+                        <div class="d-flex flex-column">
+
+                            <div> <div class="new-color color"></div>{{gpDeliveryData[0].GroupStatus}}</div>
+                            <span class="pl-3">{{gpDeliveryData[0].BagsCount}}</span> 
+                        </div>
+                        <div>
+                            <img class="bag-list img-fluid rounded" src="../../../assets/images/delivery.png">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between w-75 m-auto shadow py-4 px-2 my-3 rounded">
+                            <div class="d-flex flex-column">
+    
+                                <div> <div class="green-ball"></div>{{gpDeliveryData[1].GroupStatus}}</div>
+                                <span class="pl-3">{{gpDeliveryData[1].BagsCount}}</span> 
+                            </div>
+                            <div>
+                                <img class="bag-list img-fluid rounded" src="../../../../assets/images/shop.png">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between w-75 m-auto shadow py-4 px-2 my-3 rounded">
+                                <div class="d-flex flex-column">
+        
+                                    <div> <div class="pink-ball"></div>{{gpDeliveryData[2].GroupStatus}}</div>
+                                    <span class="pl-3">{{gpDeliveryData[2].BagsCount}}</span> 
+                                </div>
+                                <div>
+                                    <img class="bag-list img-fluid rounded" src="../../../../assets/images/shopper.png">
+                                </div>
+                            </div>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+        <div class="mb-3"> <i class=" far fa-clock"></i>
+            Latest Upadate
+            1 Hour ago
+        </div>
+        <div class="btn green-btn  save-btn">
+            <button class="submit w-100" routerLink="/layout/groups">Back</button>
+        </div>
+    </div>
+</div>
