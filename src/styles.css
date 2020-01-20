@@ -144,7 +144,7 @@ table td:first-child {
   background-color: #FF7276
 }
 span{
-  font-size: 12px
+  font-size: 11px
 }
 .each-detail{
 border-radius: 10px
@@ -449,4 +449,13 @@ input:-webkit-autofill:active  {
 
 table td:last-child{
   word-break: break-all !important;
+}
+.detail-cont{
+  background-color: #fff;
+  border-radius: 10px;
+  align-items:center;
+}
+.detail-cont img{
+width:40px;
+height: 40px;
 }
