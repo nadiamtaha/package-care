@@ -77,6 +77,7 @@ export class HotelsDataComponent implements OnInit {
 }
 
 removeOverlay(){
+  this.addForm.reset();
   $('.content-overlay').css({opacity:"0"});
    this.showConfirmMsg=false
 }

@@ -5,16 +5,16 @@
 
   <div class="overlay" *ngIf="dashboardData">
        <div class="row  py-3">
-           <div class="col-12 d-flex justify-content-around">
+           <div class="dash-title col-12 d-flex justify-content-between">
                <span>Total Of Groups & Flights</span>
-               <span>{{todayDate}}</span>
+               <span><img class="mb-1 mr-1" src="./assets/images/callender.svg">{{todayDate}}</span>
 
            </div>
 
        </div>
        <div class="d-flex days-cont">
         <div class="form-group date-cont">
-            <input (change)="getNewDate(todayDate)" [(ngModel)]='todayDate'  class="form-control" type="date">
+            <input (change)="getNewDate(currentDate)" [(ngModel)]='currentDate'  class="form-control" type="date">
         </div>
             <!-- <div class="current-day day">Today</div>
             <div class="day">Sun</div>
@@ -30,14 +30,17 @@
                     
                         <div class="d-flex flex-column text-center chart-inner">
                             <div class="header">
-                                <img src="./assets/images/group-of-men@2x.png">
+                                <img class="pr-2" src="./assets/images/group.svg">
                                 Groups
                             </div>
                             <div class="d-flex justify-content-center flex-column">
-                                    <h2 class="number">{{dashboardData.GroupsCount}}</h2>
+                                    <h5 class="number">{{dashboardData.GroupsCount}}
+                                            <span class="mt-1" style="display: block;">Group</span>
 
-                                    <div class="py-1" style="width:100%">
-                                      <canvas baseChart  width="30" height="30"
+                                    </h5>
+
+                                    <div class="py-1 justify-content-center" style="width:100%;display: flex">
+                                      <canvas class="donut" baseChart  width="50" height="50"
                                       [datasets]="doughnutChartGroupsData"
                                       [options]="doughnutChartOptions"
                                       [legend]="doughnutChartLegend"
@@ -46,7 +49,9 @@
                                       </canvas>
                                     </div>
                                     <div class="seperator"></div>
-                                    <span class="py-2">Latest Upadate
+                                    <span class="p-2">
+                                        <img src="./assets/images/time.svg">
+                                        Latest Update
                                             1 Hour ago</span>
                                   </div>
                         </div>
@@ -57,15 +62,18 @@
                     
                     <div class="d-flex flex-column text-center chart-inner">
                         <div class="header">
-                            <img src="./assets/images/group-of-men@2x.png">
+                            <img class="pr-2" src="./assets/images/flight.svg">
                             Flights
                         </div>
                         <div class="d-flex justify-content-center flex-column">
-                                <h2 class="number">{{dashboardData.FlightsCount}}</h2>
+                                <h5 class="number">{{dashboardData.FlightsCount}}
+                                        <span class="mt-1" style="display: block;">Flight</span>
 
-                                <div class="py-1" style="width: 100%;display: flex;
-                                margin:auto">
-                                  <canvas baseChart width="50" height="50"
+                                </h5>
+
+                                <div class="py-1 justify-content-center" style="width: 100%;display: flex;
+                               ">
+                                  <canvas class="donut" baseChart width="50" height="50"
                                           [datasets]="doughnutChartFlightsData"
                                           [options]="doughnutChartOptions"
                                           [legend]="doughnutChartLegend"
@@ -75,7 +83,10 @@
                                   </canvas>
                                 </div>
                                 <div class="seperator"></div>
-                                <span class="py-2">Latest Upadate
+                                <span class="p-2">
+                                        <img src="./assets/images/time.svg">
+
+                                    Latest Update
                                         1 Hour ago</span>
                               </div> 
                     </div>
@@ -86,19 +97,21 @@
 
          <div class="col-11 m-auto d-flex total-cont py-3 align-items-center">
                  
-                <div class="col-5">
+                <div class="col-4">
                     <div class="total-img-cont">
-                        <img src="./assets/images/bag@3x.png">
+                        <img src="./assets/images/bags.svg">
                     </div>
                 </div>
-                <div class="col-7">
+                <div class="col-8">
                     <div class="total-count">
-                        <h6>TOTAL OF BAGS</h6>
-                        <span>{{dashboardData.BagsCount}}</span>
+                        <div>TOTAL OF BAGS</div>
+                        <h5 class="mt-3">{{dashboardData.BagsCount}}</h5>
                     </div>
                 </div>
+                <i class="arrow fa fa-caret-up"></i>
 
          </div>
+      
          <div class="brdr-bottom"></div>
 
          <div class="py-4" id="chart" style="width: 100%;text-align:center" >
@@ -117,67 +130,67 @@
         <div class="row m-auto d-flex py-3 align-items-center">
                  
                 <div class="col-6 mb-3 px-1">
-                    <div class="detail-cont p-2 d-flex  justify-content-between ">
+                    <div class="detail-cont px-2 d-flex  justify-content-between ">
                         <div>
                         <span><div class="new-color color "></div>
                             New</span>
-                        <h4>{{dashboardData.NewBagsCount}}</h4>
+                        <div class="st-count">{{dashboardData.NewBagsCount}}</div>
                        </div>
-                        <img src="./assets/images/delivery.png">
+                        <img src="./assets/images/new.svg">
                     </div>
                 </div>
                 <div class="col-6 mb-3 px-1">
-                    <div class="detail-cont p-2 d-flex  justify-content-between">
+                    <div class="detail-cont px-2 d-flex  justify-content-between">
                             <div>
                                     <span><div class="shipped-color color"></div> Shipped</span>
-                                    <h4>{{dashboardData.ShippedBagsCount}}</h4>
+                                    <div class="st-count">{{dashboardData.ShippedBagsCount}}</div>
                                    </div>
-                        <img src="./assets/images/suitcase.png">
+                        <img src="./assets/images/suitcase.svg">
                     </div>
                 </div>
                 <div class="col-6 mb-3 px-1">
-                    <div class="detail-cont p-2 d-flex  justify-content-between">
+                    <div class="detail-cont px-2 d-flex  justify-content-between">
                             <div>
                                     <span><div class="invan-color color"></div> In Van</span>
-                                    <h4>{{dashboardData.InVanBagsCount}}</h4>
+                                    <div class="st-count">{{dashboardData.InVanBagsCount}}</div>
                                    </div>
-                        <img src="./assets/images/delivery-truck.png">
+                        <img src="./assets/images/in-van.svg">
                     </div>
                 </div>
                 <div class="col-6 mb-3 px-1">
-                    <div class="detail-cont p-2 d-flex  justify-content-between">
+                    <div class="detail-cont px-2 d-flex  justify-content-between">
                             <div>
                                     <span><div class="received-color color"></div> Received</span>
-                                    <h4>{{dashboardData.ReceivedBagsCount}}</h4>
+                                    <div class="st-count">{{dashboardData.ReceivedBagsCount}}</div>
                                    </div>
-                        <img src="./assets/images/shop.png">
+                        <img src="./assets/images/recieved.svg">
                     </div>
                 </div>
                 <div class="col-6 mb-3 px-1">
-                    <div class="detail-cont p-2 d-flex  justify-content-between">
+                    <div class="detail-cont px-2 d-flex  justify-content-between">
                             <div>
                                     <span>
                                             <div class="delivered-color color"></div>
                                         Delivered</span>
-                                    <h4>{{dashboardData.DeliveredBagsCount}}</h4>
+                                    <div class="st-count">{{dashboardData.DeliveredBagsCount}}</div>
                                    </div>
-                        <img src="./assets/images/shopper.png">
+                        <img src="./assets/images/delivered.svg">
                     </div>
                 </div>
                 <div class="col-6 mb-3 px-1">
-                    <div class="detail-cont p-2 d-flex  justify-content-between">
+                    <div class="detail-cont px-2 d-flex  justify-content-between">
                             <div>
                                     <span><div class="outofdel-color color"></div>Out Of Delivered</span>
-                                    <h4>{{dashboardData.OutForDeliveryBagsCount}}</h4>
+                                    <div class="st-count">{{dashboardData.OutForDeliveryBagsCount}}</div>
                                    </div>
-                        <img src="./assets/images/out-of-del.png">
+                        <img src="./assets/images/out-of-del.svg">
                     </div>
                 </div>
                 
 
          </div>
-       
-        <div class="py-4" id="chart" style="width: 100%;text-align:center" >
+       <div>Scanned & Not Scanned BAGS</div>
+        <div class="pt-2 pb-5" id="chart" style="width: 100%;text-align:center" >
                 <canvas baseChart width="80" height="100"
                 [datasets]="barChartDatasets"
                 [chartType]="barChartType"

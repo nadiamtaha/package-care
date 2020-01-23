@@ -77,13 +77,14 @@ export class FlightsDataComponent implements OnInit {
 }
 removeOverlay(){
   $('.content-overlay').css({opacity:"0"});
-   this.showConfirmMsg=false
+   this.showConfirmMsg=false;
+   this.addForm.reset();
 }
-  addFlight(){
+  submitFlight(){
     $('.content-overlay').css({opacity:"1",zIndex:"5"});
     $('.confirm-msg').css({opacity:"1",zIndex:"77"});
 
-    this.showConfirmMsg=true;
+    //this.showConfirmMsg=true;
     this.isSubmitted = true;
     if(this.addForm.invalid){
       return;

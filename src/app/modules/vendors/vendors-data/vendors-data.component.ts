@@ -56,8 +56,9 @@ export class VendorsDataComponent implements OnInit {
   });
 }
 removeOverlay(){
-  $('.content-overlay').css({opacity:"0",zIndex:"-2"});
-   this.showConfirmMsg=false
+   $('.content-overlay').css({opacity:"0",zIndex:"-2"});
+   this.showConfirmMsg=false;
+   this.addForm.reset();
 }
 
   sumbitVendor(){
@@ -73,6 +74,8 @@ removeOverlay(){
     if(!this.vendorId){
       this._VendorsService.addVendor(this.addForm.value).subscribe({next:response=>{
         console.log(response);
+        this.showConfirmMsg=true;
+
       },
       error:err=>{
         console.log(err.error);

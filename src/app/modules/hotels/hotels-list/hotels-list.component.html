@@ -1,11 +1,11 @@
 <template *ngIf="showConfirmMsg" class="confirm-msg text-center">
     <i class="fas fa-8x fa-exclamation-circle mb-3"></i>
 
-    <p  class="text-center">Are You Sure</p>
+    <p  class="text-center">Are You Sure from delete hotel name {{hotelName}} ?</p>
 
     <div class="w-100 d-flex justify-content-around my-3">
             <div class="btn green-btn  save-btn">
-                <button (click)="deleteHotel()"  class="submit w-100" >Sumbit</button>
+                <button (click)="deleteHotel()"  class="submit w-100" >Confirm</button>
             </div>
             <div class="btn red-btn cancel-btn">
                     <button (click)="removeOverlay()"  class="submit w-100" >Cancel</button>
@@ -24,7 +24,7 @@
         </form>
      </div>
      <div class="row hotel-slogan">
-            <button routerLink="/layout/add-Hotel" class="add-btn"> <i class="fa fa-2x fa-plus-circle"></i> <span>New</span></button>
+            <button routerLink="/layout/add-Hotel" class="add-btn"> <img src="./assets/images/plus.svg"> <span>New</span></button>
              
      </div>
      <div class="row m-2 mt-4 justify-content-center">
@@ -40,11 +40,19 @@
                     <td>{{hotel.CityName}}</td>
                 </tr>
          </table>
-         <i class="fa edit-icon  fa-edit" (click)="navigateToEdit(hotel.Id)"></i>
-         <i (click)="showDeleteConfirm(hotel.Id)" class="fa del-icon  fa-trash"></i>
-         <span class="float-right mt-3"> <i class=" far fa-clock"></i>
+         <span class="edit-cont m-1 mt-2">
+           <img  src="./assets/images/edit.svg" (click)="navigateToEdit(hotel.Id)">
+         </span>
+         <span class="del-cont m-1 mt-2">
+
+         <i (click)="showDeleteConfirm(hotel.Id,hotel.Name)" class="fa del-icon  fa-trash"></i>
+</span>
+         <div class="latest">
+         <img class="mr-2" src="./assets/images/time2.svg">
+         <span class="float-right"> 
             Latest Upadate
                1 Hour ago</span>
+              </div>
 
       </div>
     

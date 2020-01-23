@@ -14,12 +14,12 @@
 <div class="container">
 
 
-    <form class="add-form p-3 mt-3 w-100" [formGroup]="addForm" (ngSubmit)="addFlight()">
+    <form class="add-form p-3 mt-3 w-100" [formGroup]="addForm" (ngSubmit)="submitFlight()">
         <fieldset class="sub-fieldset select-fieldset my-3">
             <!-- <ng-select2 [data]="exampleData"
                 [width]="300">
     </ng-select2> -->
-            <legend>Create Flight</legend>
+            <legend>Flight Number</legend>
             <div class="form-group">
                 <input formControlName="Number" class="form-control" type="text">
             </div>
@@ -80,9 +80,15 @@
                 </div>
             </div>
         </fieldset>
-        <fieldset class="sub-fieldset select-fieldset my-3">
+        <!-- <fieldset class="sub-fieldset select-fieldset my-3">
             <legend>Departure</legend>
             <div class="form-group">
+                <input formControlName="DepartureTime" class="form-control" type="date">
+            </div>
+        </fieldset> -->
+        <fieldset class="sub-fieldset select-fieldset my-3">
+            <legend>Departure</legend>
+            <div class="select">
                 <input formControlName="DepartureTime" class="form-control" type="date">
             </div>
         </fieldset>

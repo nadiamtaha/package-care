@@ -14,6 +14,7 @@ export class HotelsListComponent implements OnInit {
   constructor(private _HotelsService:HotelsService,
     private router:Router, private spinner: NgxSpinnerService) { }
   hotelsList:any[];
+  hotelName:any;
   searchTxt;
   showConfirmMsg:boolean=false;
   hotelId:any;  
@@ -34,11 +35,11 @@ export class HotelsListComponent implements OnInit {
     this.spinner.show();
     this.getHotelsList();
   }
-  showDeleteConfirm(id){
+  showDeleteConfirm(id,name){
     $('.content-overlay').css({opacity:"1",zIndex:"5"});
     $('.confirm-msg').css({opacity:"1",zIndex:"77"});
    this.showConfirmMsg=true;
-
+   this.hotelName=name;
    this.hotelId=id;
   }
   deleteHotel(){

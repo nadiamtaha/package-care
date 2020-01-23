@@ -17,8 +17,11 @@
 .days-cont::-webkit-scrollbar { width: 0 !important }
 .number{
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 40%;
+}
+.number span{
+    font-weight: 200;
 }
 .chart-cont{
     background-color: #364148;
@@ -53,11 +56,19 @@
     background-color: #364148;
     text-align: center;
     border-radius: 50%;
-    padding: 20px;
+    padding: 10px;
+    padding-right: 0;
     display: flex;
     justify-content: center;
+    height: 75px;
+    background-color: #364148;
+    border-radius: 50%;
+    text-align: center;
+    width: 75px;
 }
-
+.total-img-cont img{
+    width:50px
+}
 .brdr-bottom{
     height: 4px;
     width: 85%;
@@ -70,4 +81,9 @@
     height: 10px;
     border-radius: 50%;
     margin-right: 5px
+}
+.donut{
+    width: 110px !important;
+    height: 110px !important;
+    margin:10px
 }

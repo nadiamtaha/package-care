@@ -1,11 +1,11 @@
 <template *ngIf="showConfirmMsg" class="confirm-msg text-center">
     <i class="fas fa-8x fa-exclamation-circle mb-3"></i>
 
-    <p  class="text-center">Are You Sure</p>
+    <p  class="text-center">Are You Sure from delete user name {{userName}} ?</p>
 
     <div class="w-100 d-flex justify-content-around my-3">
             <div class="btn green-btn  save-btn">
-                <button (click)="deleteUser()"  class="submit w-100" >Sumbit</button>
+                <button (click)="deleteUser()"  class="submit w-100" >Confirm</button>
             </div>
             <div class="btn red-btn cancel-btn">
                     <button (click)="removeOverlay()"  class="submit w-100" >Cancel</button>
@@ -35,7 +35,7 @@
                  <div class="w-100">
                  <img class="img-fluid" src="./assets/images/dummyuser.png">
                  <i class="fa edit-icon  fa-edit" (click)="navigateToEdit(user.Id)"></i>
-                 <i (click)="showDeleteConfirm(user.Id)" class="fa del-icon  fa-trash"></i>
+                 <i (click)="showDeleteConfirm(user.Id,user.DisplayName)" class="fa del-icon  fa-trash"></i>
                 </div>
             </div>
             <div class="col-7 d-flex text-center" >

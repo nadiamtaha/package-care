@@ -13,6 +13,7 @@ export class VendorsListComponent implements OnInit {
   constructor(private _VendorsService:VendorsService,
     private router:Router,private spinner: NgxSpinnerService) { }
   showConfirmMsg:boolean=false;
+  vendorName:any;
   activeLink:boolean=true;
   vendorsList:any[];
   totalCount;
@@ -34,11 +35,11 @@ export class VendorsListComponent implements OnInit {
     this.spinner.show();
     this.getVendorsList();
   }
-  showDeleteConfirm(id){
+  showDeleteConfirm(id,name){
     $('.content-overlay').css({opacity:"1",zIndex:"5"});
     $('.confirm-msg').css({opacity:"1",zIndex:"77"});
    this.showConfirmMsg=true;
-
+   this.vendorName=name;
    this.vendorId=id;
   }
 

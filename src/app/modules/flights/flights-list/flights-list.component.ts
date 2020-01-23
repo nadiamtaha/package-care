@@ -14,6 +14,7 @@ export class FlightsListComponent implements OnInit {
   constructor(private _FlightsService:FlightsService,
     private router:Router, private spinner: NgxSpinnerService) { }
   searchTxt;
+  flightNumber:any;
   flightsList:any[];
   showConfirmMsg:boolean=false;
   flightId:any;  
@@ -35,11 +36,11 @@ export class FlightsListComponent implements OnInit {
    
     this.getFlightsList();
   }
-  showDeleteConfirm(id){
+  showDeleteConfirm(id,number){
     $('.content-overlay').css({opacity:"1",zIndex:"5"});
     $('.confirm-msg').css({opacity:"1",zIndex:"77"});
    this.showConfirmMsg=true;
-
+   this.flightNumber=number;
    this.flightId=id;
   }
   deleteFlight(){

@@ -44,11 +44,10 @@
     
   }
   .border-btm{
-    width: 11%;
-    height: 2px;
+    width: 16%;
+    height: 1px;
     background-color: #000;
-    margin-left: 3%;
-    margin-top: 5%;
+    margin-left: 5%;
 }
 
 .title{
@@ -103,26 +102,52 @@
   bottom: 20px;
   right: 20px;
   border: none;
-  padding: 10px 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
   border-radius: 10px;
   background-image: linear-gradient(to right,#FF8E73, #F7941D);
-
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+.latest{
+  width: 52%;
+    display: flex;
+    /* justify-content: space-around; */
+    float: right;
+    margin-top: 15px;
+    font-size: 10px;
+}
+.latest span{
+  font-size: 10px;
+  color:#364148
+}
+.edit-cont,.del-cont{
+  width: 35px;
+    height: 35px;
+    background-color: #68AEFE;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    float: left;
+}
+.del-cont{
+  background-color: #FF7276;
 }
 .add-btn i{
   margin-right: 10px
 }
-table{
-  background-color: #F5F6FC;
-}
+
 table td{
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
-  padding: 7px 5px;
+  padding: 2px;
 
 
 }
+table td:first-child{width:30%}
 table td:first-child {
   color:#00AE94
 }
@@ -144,14 +169,18 @@ table td:first-child {
   background-color: #FF7276
 }
 span{
-  font-size: 11px
+  font-size: 14px
+}
+.dash-title{
+  color: #49545B;
 }
 .each-detail{
 border-radius: 10px
 }
 table{
-  font-size: 9px;
+  font-size: 13px;
   min-height: 80px;
+  background-color: #F5F6FC;
 
 }
 fieldset{
@@ -179,7 +208,7 @@ legend{
 }
 .sub-fieldset legend{
   display: flex;
-  font-size: 13px;
+  font-size: 12px;
   justify-content: center;
   padding: 0 !important;
 
@@ -266,10 +295,14 @@ select::-ms-expand {
 /* Transition */
 .select:hover::after {
   color: #c4c1c1;
+  background-color: #fff;
 }
 .select-fieldset
 {
   /* padding: 0 !important; */
+}
+.ng-input:focus,.ng-input:not(:focus){
+  outline: none;
 }
 .table td, .table th {
   padding: 9px;
@@ -448,14 +481,32 @@ input:-webkit-autofill:active  {
 }
 
 table td:last-child{
-  word-break: break-all !important;
+  word-break: break-word !important;
+  font-size: 10px;
 }
 .detail-cont{
   background-color: #fff;
   border-radius: 10px;
   align-items:center;
+  min-height: 90px;
 }
 .detail-cont img{
 width:40px;
 height: 40px;
+}
+.submit:disabled,
+.submit[disabled]{
+  cursor:not-allowed;
+  color: #666666;
+}
+.total-count{
+  margin-left: 38px;
+}
+.st-count{
+  margin-left:20px
+}
+.arrow{
+  position: absolute;
+  bottom: -5px;
+  left: 60%;
 }

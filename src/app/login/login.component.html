@@ -12,24 +12,27 @@
                     <fieldset>
                         <legend>Login</legend>
                         <div class="border-btm"></div>
-                        <fieldset  class="sub-fieldset my-3">
+                        <fieldset  class="sub-fieldset my-2">
                                 <legend>Username</legend>
                                 <div class="form-group has-feedback">
                                         <input type="text" class="form-control" formControlName="username" placeholder="enter your name" />
                                         <i class="far input-i fa-envelope"></i>
                                     </div>
-                                    
+
 
                         </fieldset>
-                        <fieldset  class="sub-fieldset my-3">
+                        <div *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors != null" class="text-danger text-left">user name is required</div>
+
+                        <fieldset  class="sub-fieldset my-2">
                                 <legend>Password</legend>
                                 <div class="form-group has-feedback">
                                         <input type="password" class="form-control" formControlName="password" placeholder="enter your password" />
                                         <i class=" input-i fas fa-lock"></i>
                                     </div>
                         </fieldset>
-                        <div class="btn d-block green-btn">
-                                <button class="submit w-100" type="submit">LOGIN</button>
+                        <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors != null" class="text-danger text-left">password is required</div>
+                        <div class="mt-3 btn d-block green-btn">
+                                <button [disabled]="loginForm.invalid&&!loginForm.untouched" class="submit w-100" type="submit">LOGIN</button>
                          </div>
                  </fieldset>
                  

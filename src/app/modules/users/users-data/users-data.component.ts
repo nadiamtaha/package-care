@@ -81,7 +81,8 @@ export class UsersDataComponent implements OnInit {
  
 removeOverlay(){
   $('.content-overlay').css({opacity:"0"});
-   this.showConfirmMsg=false
+   this.showConfirmMsg=false;
+   this.addForm.reset();
 }
   submitUser(){
     $('.content-overlay').css({opacity:"1",zIndex:"5"});

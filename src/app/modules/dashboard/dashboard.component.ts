@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   public doughnutChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
-    cutoutPercentage:90,
+    cutoutPercentage:87,
     backgroundColor: 'red'
 
   };
@@ -127,8 +127,8 @@ this.getStatisticalByDay(this.currentDate)
       this.barChartDatasets= [
         // { data: [this.dashboardData.NewBagsCount, this.dashboardData.ShippedBagsCount, this.dashboardData.InVanBagsCount, this.dashboardData.ReceivedBagsCount, this.dashboardData.DeliveredBagsCount, this.dashboardData.OutForDeliveryBagsCount], label: 'Scanned BAGS' },
         // { data: [this.dashboardData.NewBagsCount, this.dashboardData.ShippedBagsCount, this.dashboardData.InVanBagsCount, this.dashboardData.ReceivedBagsCount, this.dashboardData.DeliveredBagsCount, this.dashboardData.OutForDeliveryBagsCount], label: 'Not Scanned BAGS' }
-        { data: [20, 80, 25, 35, 24, 30], label: 'Scanned BAGS' },
-        { data: [50, 40, 15, 60, 30, 12], label: 'Not Scanned BAGS' }
+        { data: [20, 80, 25, 35, 24, 30], label: 'Scanned' },
+        { data: [50, 40, 15, 60, 30, 12], label: 'Not Scanned' }
 
       ];
      this.polarChartDatasets=[
@@ -148,17 +148,20 @@ this.getStatisticalByDay(this.currentDate)
     
   }
   formatDate(date) {
+    const monthNames = ["Jan", "Feb", "March", "April", "May", "June",
+    "July", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
     var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
+        month = '' + (monthNames[d.getMonth()] ),
         day = '' + d.getDate(),
         year = d.getFullYear();
-
+       
     if (month.length < 2) 
         month = '0' + month;
     if (day.length < 2) 
         day = '0' + day;
 
-    return [year, month, day].join('-');
+    return [day,month,year].join('-');
 }
 getNewDate(pickedDate){
   this.getStatisticalByDay(pickedDate)

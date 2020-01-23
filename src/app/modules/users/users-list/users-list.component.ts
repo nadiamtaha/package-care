@@ -12,6 +12,7 @@ export class UsersListComponent implements OnInit {
   usersList:any[];
   showConfirmMsg:boolean=false;
   userId:any;  
+  userName:any;
   totalCount;
   currentIndex=0;
   numbers;
@@ -24,11 +25,11 @@ export class UsersListComponent implements OnInit {
   }
   constructor(private router:Router,
     private _UsersService:UsersService,private spinner: NgxSpinnerService) { }
-  showDeleteConfirm(id){
+  showDeleteConfirm(id,name){
     $('.content-overlay').css({opacity:"1",zIndex:"5"});
     $('.confirm-msg').css({opacity:"1",zIndex:"77"});
    this.showConfirmMsg=true;
-
+   this.userName=name;
    this.userId=id;
   }
   deleteUser(){
