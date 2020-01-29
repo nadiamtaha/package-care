@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl:"https://stg.devopsolution.net/NewBaggageCare/api/"
+  baseUrl:"http://192.168.2.4/BaggageCare/api/api/"
 
 };
 

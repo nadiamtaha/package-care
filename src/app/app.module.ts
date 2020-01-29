@@ -27,6 +27,7 @@ import { SearchPipe } from './search.pipe';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -60,8 +61,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     HttpClientModule,
     NgSelectModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    }) // ToastrModule added
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

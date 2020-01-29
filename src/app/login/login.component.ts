@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Router } from  '@angular/router';
 import { AuthenticationService } from '../services/authenticaation.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   isSubmitted  =  false;
   constructor(private router: Router, private formBuilder: FormBuilder,
     private _AuthenticationService:AuthenticationService,
-    private spinner: NgxSpinnerService ) { 
+    private spinner: NgxSpinnerService,private toastr: ToastrService ) { 
 
   }
 
@@ -30,15 +31,18 @@ export class LoginComponent implements OnInit {
     this.loginForm.value.grant_type="password"
     this._AuthenticationService.login(this.loginForm.value).subscribe({next:response=>{
       localStorage.setItem('currentUser',JSON.stringify(response));
-      this.spinner.hide();
 
       this.router.navigateByUrl('/layout/dashboard');
     },
     error:err=>{
+      this.toastr.error('Wrong user name or password!', 'Error !');
       console.log(err.error);
       
     }
+    
     })
+    this.spinner.hide();
+
     //this._AuthenticationService.login(this.loginForm.value);
   }
 

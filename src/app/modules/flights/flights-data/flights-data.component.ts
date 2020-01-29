@@ -29,8 +29,10 @@ export class FlightsDataComponent implements OnInit {
     pageIndex:1,
     searchTxt:''
   }
+  
   constructor(private router: Router, private formBuilder: FormBuilder,
     private _FlightsService:FlightsService,private activeRoute:ActivatedRoute) { 
+     
 
   }
 
@@ -38,7 +40,10 @@ export class FlightsDataComponent implements OnInit {
 
 
   ngOnInit() {
-    
+    if(!localStorage.getItem('currentUser')) {
+      this.router.navigate(['login']);
+      return;
+    }
     this.activeRoute.paramMap.subscribe(params => {
       this.flightId = params.get("id")
     })

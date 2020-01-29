@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
 
-  loginUrl='https://stg.devopsolution.net/NewBaggageCare/token';
+  loginUrl='http://192.168.2.4/BaggageCare/api/token';
   constructor(private http:HttpClient) { }
 
   public login(user):Observable<any>
