@@ -12,7 +12,7 @@ import { UsersService } from '../users.service';
 })
 export class UsersDataComponent implements OnInit {
   searchTxt;
-  
+  mailMatchingErrorMsg=false;
   addForm: FormGroup;
   isSubmitted  =  false;
   showConfirmMsg=false;
@@ -68,10 +68,10 @@ export class UsersDataComponent implements OnInit {
     this.addForm  =  this.formBuilder.group({
       DisplayName: ['', Validators.required],
       file: [''],
-      Email: ['', Validators.required],
-      Mobile: ['', Validators.required],
-      Password: [''],
-      ConfirmPassword: [''],
+      Email: ['', [Validators.required,Validators.email]],
+      Mobile: ['', [Validators.required,Validators.pattern(/^01(0|1|2|5)[0-9]{8}$/)]],
+      Password: ['', Validators.required],
+      ConfirmPassword: ['', Validators.required],
       UserType: ['', Validators.required],
 
 
@@ -103,8 +103,15 @@ removeOverlay(){
 
     //this.addForm.value.cityId=parseInt(this.addForm.value.cityId)
     if(!this.userId){
-      formData.append('Password', this.addForm.value.Password);
-      formData.append('ConfirmPassword',this.addForm.value.ConfirmPassword);
+      if(this.addForm.value.Password===this.addForm.value.ConfirmPassword)
+      {
+        formData.append('Password', this.addForm.value.Password);
+        formData.append('ConfirmPassword',this.addForm.value.ConfirmPassword);
+      }
+     else{
+       this.mailMatchingErrorMsg=true;
+       return;
+     }
       this._UsersService.addUser(formData).subscribe({next:response=>{
         console.log(response);
         this.showConfirmMsg=true;

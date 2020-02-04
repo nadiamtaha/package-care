@@ -40,7 +40,8 @@
                                    >
                             </div>
                         </fieldset>
-                        <span *ngIf="addForm.controls.Email.touched && addForm.controls.Email.errors != null" class="text-danger">email is required</span>
+                        <span *ngIf="addForm.controls.Email.touched &&addForm.controls.Email.errors&& addForm.controls.Email.errors.required != null" class="text-danger">email is required</span>
+                        <span *ngIf="addForm.controls.Email.touched &&addForm.controls.Email.errors&& addForm.controls.Email.errors.email != null" class="text-danger">email should be valid</span>
 
                         <fieldset class="sub-fieldset select-fieldset my-3">
                                 <legend>Mobile</legend>
@@ -49,7 +50,8 @@
                                        >
                                 </div>
                             </fieldset>
-                            <span *ngIf="addForm.controls.Mobile.touched && addForm.controls.Mobile.errors != null" class="text-danger">mobile is required</span>
+                            <span *ngIf="addForm.controls.Mobile.touched && addForm.controls.Mobile.errors&&addForm.controls.Mobile.errors.required != null" class="text-danger">mobile is required</span>
+                            <span *ngIf="addForm.controls.Mobile.touched &&addForm.controls.Mobile.errors&& addForm.controls.Mobile.errors.pattern != null" class="text-danger">mobile number should be valid</span>
 
                             <fieldset *ngIf="!userId" class="sub-fieldset select-fieldset my-3">
                                 <legend>Password</legend>
@@ -68,7 +70,8 @@
                                 </div>
                             </fieldset>
                             <span *ngIf="addForm.controls.ConfirmPassword.touched && addForm.controls.ConfirmPassword.errors != null" class="text-danger">repass is required</span>
-
+ 
+  <span *ngIf="mailMatchingErrorMsg">passwords don't match</span>
         <fieldset class="sub-fieldset select-fieldset my-3">
             <legend>User Role</legend>
             <div class="select">

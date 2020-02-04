@@ -5,7 +5,9 @@
     background-color: #F5F6FC;
     overflow: hidden;
   }
-  
+  .pagination{
+    margin-bottom: 50px;
+  }
   
 .sidebar {
     list-style-type: none;

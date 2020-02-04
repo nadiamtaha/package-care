@@ -13,9 +13,10 @@ import * as $ from 'jquery'
 export class FlightsDataComponent implements OnInit {
   public exampleData;
   addForm: FormGroup;
+  selectAirPorts:any[]=[];
   isSubmitted  =  false;
-  airlinesList:any[];
-  airportsList:any[];
+  airlinesList:any[]=[];
+  airportsList:any[]=[];
   showConfirmMsg=false;
   flightId:any;
   flight:any;
@@ -123,14 +124,25 @@ removeOverlay(){
 
   getAirlinesList(){
     this._FlightsService.getAirlinesList(this.airLinesSearchCriteria).subscribe(response=>{
-      this.airlinesList=response.Data;
+      
+      this.airlinesList= this.airlinesList.concat(response.Data);
       console.log(this.airlinesList)
     })
   }
-  
+  getMoreAirports(newPageIndex){
+    this.airPortsSearchCriteria.pageIndex=newPageIndex;
+    this.getAirportsList();
+   
+  }
+  getMoreAirlines(newPageIndex){
+    this.airLinesSearchCriteria.pageIndex=newPageIndex;
+    this.getAirlinesList();
+   
+  }
   getAirportsList(){
     this._FlightsService.getAirportsList(this.airPortsSearchCriteria).subscribe(response=>{
-      this.airportsList=response.Data;
+      console.log(response.Data)
+      this.airportsList= this.airportsList.concat(response.Data);
       console.log(this.airportsList)
 
     })
