@@ -22,7 +22,7 @@
     "@ng-select/ng-select": "^3.7.1",
     "@types/select2": "^4.0.48",
     "bootstrap": "^4.4.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "cordova": "^9.0.0",
     "jquery": "^3.4.1",
     "ng2-charts": "^2.3.0",
